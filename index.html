@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>Proggetti Mameli Federico</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<style>
+		html,
+		body,
+		#app{min-height: 100vh;}
+
+		body{
+			color: #fafafa;
+			font-family: sans-serif;
+		}
+
+		#app{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-image: linear-gradient(to right bottom, #0984e3, #00cec9);
+			padding: 0 2rem;
+		}
+
+		.projects-list{
+			list-style: none;
+			padding: 0;
+		}
+
+		.projects-list__item{
+			font-size: 1.3rem;
+			text-align: right;
+			text-transform: uppercase;
+			padding: .7rem;
+			width: 100%;
+			background-image: linear-gradient(220deg, transparent , transparent, transparent 50%, #fff 50%);
+			background-size: 220%;
+			background-position: 100%;
+			transition: background-position .6s ease-out;
+		}
+
+		.projects-list__item:hover{
+			background-position: 0%;
+			color: #0984e3;
+			font-weight: 500;
+		}
+
+		.projects-list__item a{
+			color: currentColor;
+			text-decoration: none;
+		}
+
+		/*==========================*/
+		@media screen and (min-width: 768px){
+			.projects-list__item{
+				text-align: center;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<ul class="projects-list">
+			<li class="projects-list__item" v-for="(link, i) in links" :key="`prj_${i}`">
+				<a :href="link.link" target="_blank">{{ link.name }}</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<!--SCRIPTS-->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#app',
+			data:{
+				links: [
+					{name: 'Natours [CSS]', link: 'https://federicomamelisitiweb.000webhostapp.com/progettiweb/advanced-css-course/natours-responsive/'},
+					{name: 'Trillo [CSS - Flexbox]', link: 'https://federicomamelisitiweb.000webhostapp.com/progettiweb/advanced-css-course/trillo-flexbox/'},
+					{name: 'Nexter [CSS - Grid]', link: 'https://federicomameliprjs.github.io/Nexter/index.html'},
+					{name: 'Pig Game [JS]', link: 'https://federicomamelisitiweb.000webhostapp.com/progettiweb/gioco_dadi/'},
+					{name: 'Budgety [JS]', link: 'https://federicomameliprjs.github.io/Budgety/index.html'},
+					{name: 'Monster Slayer [JS - VUE]', link: 'https://federicomameliprjs.github.io/MonsterSlayer/index.html'},
+					{name: 'Quotes [JS - VUE]', link: 'https://federicomameliprjs.github.io/QuotesVue/index.html'}
+				]
+			}
+		});
+	</script>
+</body>
+</html>
